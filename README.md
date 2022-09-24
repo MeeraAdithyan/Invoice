@@ -15,4 +15,7 @@ create .env file by copy contents from env
     database.default.password = 
     database.default.DBDriver = MySQLi
     database.default.DBPrefix =
+    
+Use contents in the file database for db creation 
+
 Take url http://localhost/invoice/ in browser
