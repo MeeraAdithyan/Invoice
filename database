@@ -1,0 +1,60 @@
+Create database `invoice`
+
+CREATE TABLE `invoice` (
+  `id` int(11) NOT NULL,
+  `invoice_number` varchar(50) NOT NULL,
+  `sub_total_without_tax` float NOT NULL,
+  `discount` float NOT NULL,
+  `sub_total_with_tax` float NOT NULL,
+  `total` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice_item`
+--
+
+CREATE TABLE `invoice_item` (
+  `id` int(11) NOT NULL,
+  `invoice_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `unit_price` float NOT NULL,
+  `tax` float NOT NULL,
+  `total` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `invoice_item`
+--
+ALTER TABLE `invoice_item`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `invoice_id` (`invoice_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `invoice_item`
+--
+ALTER TABLE `invoice_item`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
